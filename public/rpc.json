@@ -1,0 +1,268 @@
+{
+  "author": {
+    "description": "Authoring of network items",
+    "isDeprecated": false,
+    "isHidden": false,
+    "index": { "0": 0 },
+    "name": "author",
+    "private": {},
+    "public": {
+      "submitExtrinsic": {
+        "description": "Submit a fully formatted extrinsic for block inclusion",
+        "index": { "0": 0, "1": 0 },
+        "isDeprecated": false,
+        "isHidden": false,
+        "isSigned": true,
+        "isSubscription": false,
+        "isUnhashed": false,
+        "key": "",
+        "name": "submitExtrinsic",
+        "params": [{ "isOptional": false, "name": "extrinsic", "type": "Bytes" }],
+        "section": "author",
+        "type": "Hash"
+      }
+    }
+  },
+  "chain": {
+    "description": "Retrieval of chain data",
+    "isDeprecated": false,
+    "isHidden": false,
+    "index": { "0": 0 },
+    "name": "chain",
+    "private": {},
+    "public": {
+      "getHead": {
+        "description": "Retrieves the best headerHash",
+        "index": { "0": 0, "1": 0 },
+        "isDeprecated": false,
+        "isHidden": false,
+        "isSigned": false,
+        "isSubscription": false,
+        "isUnhashed": false,
+        "key": "",
+        "name": "getHead",
+        "params": [],
+        "section": "chain",
+        "type": "Hash"
+      },
+      "getHeader": {
+        "description": "Retrieves the header for a specific block",
+        "index": { "0": 0, "1": 0 },
+        "isDeprecated": false,
+        "isHidden": false,
+        "isSigned": false,
+        "isSubscription": false,
+        "isUnhashed": false,
+        "key": "",
+        "name": "getHeader",
+        "params": [{ "isOptional": false, "name": "hash", "type": "Hash" }],
+        "section": "chain",
+        "type": "Header"
+      },
+      "newHead": {
+        "description": "Retrieves the best header via subscription",
+        "index": { "0": 0, "1": 0 },
+        "isDeprecated": false,
+        "isHidden": false,
+        "isSigned": false,
+        "isSubscription": true,
+        "isUnhashed": false,
+        "key": "",
+        "name": "newHead",
+        "params": [],
+        "section": "chain",
+        "type": "Header"
+      }
+    }
+  },
+  "state": {
+    "description": "Query of state",
+    "isDeprecated": false,
+    "isHidden": false,
+    "index": { "0": 0 },
+    "name": "state",
+    "private": {},
+    "public": {
+      "call": {
+        "description": "Perform a call to a builtin on the chain",
+        "index": { "0": 0, "1": 0 },
+        "isDeprecated": false,
+        "isHidden": false,
+        "isSigned": false,
+        "isSubscription": false,
+        "isUnhashed": false,
+        "key": "",
+        "name": "call",
+        "params": [
+          { "isOptional": false, "name": "method", "type": "String" },
+          { "isOptional": false, "name": "data", "type": "Bytes" }
+        ],
+        "section": "state",
+        "type": "Bytes"
+      },
+      "callAt": {
+        "description": "Perform a call to a builtin on the chain (At block)",
+        "index": { "0": 0, "1": 0 },
+        "isDeprecated": false,
+        "isHidden": false,
+        "isSigned": false,
+        "isSubscription": false,
+        "isUnhashed": false,
+        "key": "",
+        "name": "callAt",
+        "params": [
+          { "isOptional": false, "name": "method", "type": "String" },
+          { "isOptional": false, "name": "data", "type": "Bytes" },
+          { "isOptional": false, "name": "block", "type": "Hash" }
+        ],
+        "section": "state",
+        "type": "Bytes"
+      },
+      "getStorage": {
+        "description": "Retrieves the storage for a key",
+        "index": { "0": 0, "1": 0 },
+        "isDeprecated": false,
+        "isHidden": false,
+        "isSigned": false,
+        "isSubscription": false,
+        "isUnhashed": false,
+        "key": "",
+        "name": "getStorage",
+        "params": [{ "isOptional": false, "name": "key", "type": "Bytes" }],
+        "section": "state",
+        "type": "Bytes"
+      },
+      "getStorageAt": {
+        "description": "Retrieves the storage for a key at a specific block",
+        "index": { "0": 0, "1": 0 },
+        "isDeprecated": false,
+        "isHidden": false,
+        "isSigned": false,
+        "isSubscription": false,
+        "isUnhashed": false,
+        "key": "",
+        "name": "getStorageAt",
+        "params": [
+          { "isOptional": false, "name": "key", "type": "Bytes" },
+          { "isOptional": false, "name": "block", "type": "Hash" }
+        ],
+        "section": "state",
+        "type": "Bytes"
+      },
+      "getStorageHash": {
+        "description": "Retrieves the storage hash",
+        "index": { "0": 0, "1": 0 },
+        "isDeprecated": false,
+        "isHidden": false,
+        "isSigned": false,
+        "isSubscription": false,
+        "isUnhashed": false,
+        "key": "",
+        "name": "getStorageHash",
+        "params": [{ "isOptional": false, "name": "key", "type": "Bytes" }],
+        "section": "state",
+        "type": "Hash"
+      },
+      "getStorageHashAt": {
+        "description": "Retrieves the storage hash at a specific block",
+        "index": { "0": 0, "1": 0 },
+        "isDeprecated": false,
+        "isHidden": false,
+        "isSigned": false,
+        "isSubscription": false,
+        "isUnhashed": false,
+        "key": "",
+        "name": "getStrorageHashAt",
+        "params": [
+          { "isOptional": false, "name": "key", "type": "Bytes" },
+          { "isOptional": false, "name": "block", "type": "Hash" }
+        ],
+        "section": "state",
+        "type": "Hash"
+      },
+      "getStorageSize": {
+        "description": "Retrieves the storage size",
+        "index": { "0": 0, "1": 0 },
+        "isDeprecated": false,
+        "isHidden": false,
+        "isSigned": false,
+        "isSubscription": false,
+        "isUnhashed": false,
+        "key": "",
+        "name": "getStorageSize",
+        "params": [{ "isOptional": false, "name": "key", "type": "Bytes" }],
+        "section": "state",
+        "type": "u64"
+      },
+      "getStorageSizeAt": {
+        "description": "Retrieves the storage size at a specific block",
+        "index": { "0": 0, "1": 0 },
+        "isDeprecated": false,
+        "isHidden": false,
+        "isSigned": false,
+        "isSubscription": false,
+        "isUnhashed": false,
+        "key": "",
+        "name": "getStorageSizeAt",
+        "params": [
+          { "isOptional": false, "name": "key", "type": "Bytes" },
+          { "isOptional": false, "name": "block", "type": "Hash" }
+        ],
+        "section": "state",
+        "type": "u64"
+      }
+    }
+  },
+  "system": {
+    "description": "Methods to retrieve system info",
+    "isDeprecated": false,
+    "isHidden": false,
+    "index": { "0": 0 },
+    "name": "system",
+    "private": {},
+    "public": {
+      "chain": {
+        "description": "Retrieves the chain",
+        "index": { "0": 0, "1": 0 },
+        "isDeprecated": false,
+        "isHidden": false,
+        "isSigned": false,
+        "isSubscription": false,
+        "isUnhashed": false,
+        "key": "",
+        "name": "chain",
+        "params": [],
+        "section": "system",
+        "type": "String"
+      },
+      "name": {
+        "description": "Retrieves the node name",
+        "index": { "0": 0, "1": 0 },
+        "isDeprecated": false,
+        "isHidden": false,
+        "isSigned": false,
+        "isSubscription": false,
+        "isUnhashed": false,
+        "key": "",
+        "name": "name",
+        "params": [],
+        "section": "system",
+        "type": "String"
+      },
+      "version": {
+        "description": "Retrieves the version of the node",
+        "index": { "0": 0, "1": 0 },
+        "isDeprecated": false,
+        "isHidden": false,
+        "isSigned": false,
+        "isSubscription": false,
+        "isUnhashed": false,
+        "key": "",
+        "name": "version",
+        "params": [],
+        "section": "system",
+        "type": "String"
+      }
+    }
+  }
+}
