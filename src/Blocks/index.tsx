@@ -50,7 +50,6 @@ class Comp extends React.PureComponent<ApiProps, State> {
 
   subscribeIntentions() {
     const { api } = this.props;
-    console.log(storage);
     return api.state.getStorage(storage.staking.public.intentions).subscribe((storage: StorageIntentions) => {
       const intentions = storage.map(encodeAddress);
 

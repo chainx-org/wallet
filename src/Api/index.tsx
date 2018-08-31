@@ -1,22 +1,22 @@
 import * as React from 'react';
 
-import ApiContext from './Context';
-
 import WsProvider from '@polkadot/api-provider/ws';
 import createApi from '@polkadot/api-rx';
-// import defaults from '@polkadot/api-rx/defaults';
-
 import { RxApiInterface } from '@polkadot/api-rx/types';
 import { Subscription } from 'rxjs/Subscription';
+
+import ApiObservable from './ApiObservable';
+import ApiContext from './Context';
 import { IApiConfig } from './types';
 
 interface IState {
   api: RxApiInterface;
   apiConnected: boolean;
+  apiObservable: ApiObservable;
   subscriptions: Subscription[];
 }
 
-export default class Api extends React.PureComponent<IApiConfig, IState> {
+export default class ApiProvider extends React.PureComponent<IApiConfig, IState> {
   constructor(props: IApiConfig) {
     super(props);
     const { url } = props;
@@ -24,9 +24,25 @@ export default class Api extends React.PureComponent<IApiConfig, IState> {
 
     this.state = {
       api,
+      apiObservable: new ApiObservable(api),
       apiConnected: false,
       subscriptions: [],
     };
+  }
+
+  public componentDidMount() {
+    this.updateSubscriptions();
+  }
+
+  public componentWillUnmount() {
+    this.unsubscribe();
+  }
+
+  public render() {
+    const { api, apiObservable, apiConnected } = this.state;
+    return (
+      <ApiContext.Provider value={{ api, apiObservable, apiConnected }}>{this.props.children}</ApiContext.Provider>
+    );
   }
 
   private updateSubscriptions() {
@@ -38,17 +54,19 @@ export default class Api extends React.PureComponent<IApiConfig, IState> {
     });
   }
 
-  private unsubscribe() {}
+  private unsubscribe() {
+    for (const subscription of this.state.subscriptions) {
+      try {
+        subscription.unsubscribe();
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
 
   private subscribeIsConnected(api: RxApiInterface): Subscription {
     return api.isConnected().subscribe((isConnected?: boolean) => {
       this.setState({ apiConnected: !!isConnected });
     });
-  }
-
-  componentDidMount() {}
-
-  render() {
-    return <ApiContext.Provider value={{ bbb: 1 }}>{this.props.children}</ApiContext.Provider>;
   }
 }
