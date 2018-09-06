@@ -1,11 +1,12 @@
 {
-  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "extends": ["tslint-config-prettier"],
   "rules": {
     "no-console": false,
     "no-shadowed-variable": false,
     "object-literal-sort-keys": false,
     "interface-name": [false, "always-prefix"],
-    "member-access": [false, "no-public"]
+    "member-access": [false, "no-public"],
+    "jsx-no-lambda": false
   },
   "linterOptions": {
     "exclude": ["config/**/*.js", "node_modules/**/*.ts", "node_modules/**/*.tsx"]

@@ -1,1 +1,1 @@
-declare module 'aaaaa';
+declare module 'react-jss';

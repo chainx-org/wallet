@@ -1,21 +1,34 @@
 import * as React from 'react';
 
-import { HashRouter } from 'react-router-dom';
+import { Route, Switch } from 'react-router';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import BlockHeader from '../BlockHeader';
-import Container from './Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 
 import ApiProvider from '../Api';
+import BlockByHash from '../BlockByHash';
+import BlockHeader from '../BlockHeader';
+import Container from './Container';
+import Header from './Header';
+import theme from '../theme';
 
-class App extends React.Component {
+class App extends React.PureComponent {
   public render() {
     return (
-      <ApiProvider url="wss://poc-2.polkadot.io:9944/">
-        <HashRouter>
-          <Container>
-            <BlockHeader />
-          </Container>
-        </HashRouter>
+      <ApiProvider url="ws://192.168.1.11:8082/">
+        <Router>
+          <MuiThemeProvider theme={theme}>
+            <CssBaseline />
+            <Container>
+              <Header />
+              <Switch>
+                <Route path="/hash/:hash" component={BlockByHash} />
+                <Route component={BlockHeader} />
+              </Switch>
+            </Container>
+          </MuiThemeProvider>
+        </Router>
       </ApiProvider>
     );
   }
