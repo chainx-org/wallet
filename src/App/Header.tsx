@@ -10,6 +10,7 @@ const styles = {
     height: 64,
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.12), inset 0 -1px 0 0 #E6E6E6',
   },
   brand: {
@@ -25,8 +26,10 @@ const Header: React.SFC<Props> = props => {
   const { classes } = props;
   return (
     <header className={classes.pageHeader}>
-      <div className={classes.brand}>ChainX Explorer</div>
-      <MainMenu />
+      <div className='wrapper'>
+        <div className={classes.brand}>ChainX Explorer</div>
+        <MainMenu />
+      </div>
     </header>
   );
 };
