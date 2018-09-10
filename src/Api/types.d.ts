@@ -8,7 +8,7 @@ export interface IApiConfig {
   url: string;
 }
 
-export interface IApiProps {
+export interface IApi {
   api: RxApiInterface;
   apiConnected: boolean;
   apiObservable: ApiObservable;

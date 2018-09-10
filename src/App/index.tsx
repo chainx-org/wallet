@@ -7,8 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 
 import ApiProvider from '../Api';
-import BlockByHash from '../BlockByHash';
-import BlockHeader from '../BlockHeader';
+import DashBoard from '../DashBoard';
 import Container from './Container';
 import Header from './Header';
 import theme, { globalClass } from '../theme';
@@ -22,8 +21,7 @@ const App: React.SFC = () => {
           <Container>
             <Header />
             <Switch>
-              <Route path="/hash/:hash" component={BlockByHash} />
-              <Route component={BlockHeader} />
+              <Route exact path="/dashboard" component={DashBoard} />
             </Switch>
           </Container>
         </MuiThemeProvider>

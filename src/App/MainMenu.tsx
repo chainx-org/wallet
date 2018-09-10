@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { withRouter, RouteComponentProps } from 'react-router';
+import { withRouter, RouteComponentProps, Route, Switch } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -37,12 +37,12 @@ class MainMenu extends React.PureComponent<Props> {
     return (
       <nav className={classes.menu}>
         <div className={classes.menuItem}>
-          <NavLink className={classes.menuItemLink} activeClassName="active" to="/dashboard">
+          <NavLink className={classes.menuItemLink} activeClassName={classes.active} to="/dashboard">
             概览
           </NavLink>
         </div>
         <div className={classes.menuItem}>
-          <NavLink className={classes.menuItemLink} activeClassName="active" to="/blocks">
+          <NavLink className={classes.menuItemLink} activeClassName={classes.active} to="/blocks/111">
             区块
           </NavLink>
         </div>
