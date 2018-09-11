@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import withApi from './withApi';
-// withObservable('democracyProposalDeposits', { paramProp: 'idNumber' })
 
 interface IState {
   subscriptions: any[];

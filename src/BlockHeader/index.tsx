@@ -3,12 +3,10 @@ import * as React from 'react';
 import { Header } from '@polkadot/primitives/header';
 import { Link } from 'react-router-dom';
 
-import { IApi } from '../Api/types';
 import withObservable from '../Api/withObservable';
 import compose from '../util/compose';
 import numberFormat from '../util/numberFormat';
 import u8aToHex from '../util/u8aToHex';
-import headerHash from '../util/headerHash';
 
 interface Props {
   head?: Header;
