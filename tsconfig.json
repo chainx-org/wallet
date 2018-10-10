@@ -20,5 +20,14 @@
     "allowSyntheticDefaultImports": true,
     "typeRoots": ["./node_modules/@polkadot/ts", "./node_modules/@types"]
   },
-  "exclude": ["node_modules", "build", "scripts", "acceptance-tests", "webpack", "jest", "src/setupTests.ts"]
+  "exclude": [
+    "**/node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts",
+    "config"
+  ]
 }
